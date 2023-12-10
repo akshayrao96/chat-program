@@ -28,16 +28,7 @@ def handle(client):
     while True:
         try:
             message = client.recv(1024)
-            if message.endswith('has left the chat.'):
-                index = clients.index(client)
-                clients.remove(client)
-                client.close()
-                name = names[index]
-                broadcast(f'{name} has left the room!'.encode('utf-8'))
-                names.remove(name)
-                break
-            else:
-                broadcast(message)
+            broadcast(message)
         except:
             index = clients.index(client)
             clients.remove(client)

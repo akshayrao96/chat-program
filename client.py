@@ -27,13 +27,8 @@ def client_receive():
 
 def client_send():
     while True:
-        message = input("")
-        if message.lower() in ['q', 'quit']:
-            client.send(f'{name} has left the chat.'.encode('utf-8'))
-            client.close()
-            break
-        else:
-            client.send(f'{name}: {message}'.encode('utf-8'))
+        message = f'{name}: {input("")}'
+        client.send(message.encode('utf-8'))
 
 
 receive_thread = threading.Thread(target=client_receive)
