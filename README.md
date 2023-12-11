@@ -35,6 +35,8 @@ This chat application provides a functional demonstration of a chat room where a
 - Both client and server are designed to be multithreaded for efficient handling of multiple connections.
 - GUI development was carried out using Tkinter, enhancing the user experience.
 
+![Screenshot](client.png)
+
 ## Sources and Resources
 
 - Python Socket Programming: [Real Python](https://realpython.com/python-sockets/), [Python Documentation](https://docs.python.org/3/howto/sockets.html)
