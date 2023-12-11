@@ -5,7 +5,7 @@ import queue
 from tkinter import simpledialog, scrolledtext, messagebox
 
 host = 'localhost'
-port = 9001
+port = 9000
 
 
 class Client:

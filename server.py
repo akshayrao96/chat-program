@@ -4,7 +4,7 @@ import sys
 
 # Initializes host, port, and server socket configurations
 host = 'localhost'
-port = 9001
+port = 9000
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
