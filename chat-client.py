@@ -26,7 +26,7 @@ class Client:
         self.win.title("Chat Room Application")
 
         self.chat_label = tkinter.Label(
-            self.win, text="A CS5700 Networking Chat Room!", bg="Khaki1", fg="#333333", borderwidth=2, relief="groove"
+            self.win, text="CS5700 Networking Chat Room!", bg="Khaki1", fg="#333333", borderwidth=2, relief="groove"
         )
         self.chat_label.config(font=("Calibri", 28, "bold"))
         # You might want to fill the label in the x direction for better appearance
