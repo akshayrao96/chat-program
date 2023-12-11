@@ -1,8 +1,8 @@
-# Chat Application - CS5700 Fundamentals of Networking
+# Chat Application
 
 ## Overview
 
-This project is a chat application developed as part of the CS5700 - Fundamentals of Networking course. It's designed to explore client-server socket connections in Python, demonstrating the application of TCP/IP networking concepts. The project consists of three main components: `server.py`, `client.py`, and `chat-client.py`, each playing a vital role in the chat system.
+This project is a chat application program. It's designed to explore client-server socket connections in Python, demonstrating the application of TCP/IP networking concepts. The project consists of three main components: `server.py`, `client.py`, and `chat-client.py`, each playing a vital role in the chat system.
 
 ## Repository Link
 
