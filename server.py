@@ -4,7 +4,7 @@ import sys
 
 # Initializes host, port, and server socket configurations
 host = 'localhost'
-port = 9000
+port = 9001
 
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -31,15 +31,24 @@ def broadcast(message):
 def handle(client):
     while True:
         try:
-            message = client.recv(1024)
-            broadcast(message)
-        except:
+            message = client.recv(1024).decode('utf-8')
+            if message == "/quit":
+                index = clients.index(client)
+                name = names[index]
+                broadcast(f"{name} has left the room!\n".encode('utf-8'))
+                names.remove(name)
+                clients.remove(client)
+                client.close()
+                break
+            else:
+                broadcast(message.encode('utf-8'))
+        except Exception as e:
             index = clients.index(client)
+            name = names[index]
+            broadcast(f"{name} has left the room!\n".encode('utf-8'))
+            names.remove(name)
             clients.remove(client)
             client.close()
-            name = names[index]
-            broadcast(f'{name} has left the room!'.encode())
-            names.remove(name)
             break
 
 
@@ -50,16 +59,18 @@ def receive():
 
         print(f'connection is established with {str(address)}')
 
-        client.send('name?'.encode('utf-8'))
+        client.send('NICK'.encode('utf-8'))
         name = client.recv(1024).decode('utf-8')
 
-        if name.lower() == 'quit' or name.lower() == 'q':
-            break
+        if name.lower() in ['quit', 'q']:
+            client.send('Server is shutting down'.encode('utf-8'))
+            client.close()
+            continue
+
+        broadcast(f'{name} has joined the room!\n'.encode('utf-8'))
 
         names.append(name)
         clients.append(client)
-
-        broadcast(f'{name} has joined the room!\n'.encode('utf-8'))
 
         client.send('you are now connected!'.encode('utf-8'))
 
