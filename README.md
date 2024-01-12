@@ -37,6 +37,8 @@ This chat application provides a functional demonstration of a chat room where a
 
 ![Screenshot](client.png)
 
+![Screenshot](client-communication.png)
+
 ## Sources and Resources
 
 - Python Socket Programming: [Real Python](https://realpython.com/python-sockets/), [Python Documentation](https://docs.python.org/3/howto/sockets.html)
